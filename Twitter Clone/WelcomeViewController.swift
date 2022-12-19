@@ -53,7 +53,7 @@ class WelcomeViewController: UIViewController {
         createAccountBtn.setTitle("Create account", for: .normal)
         createAccountBtn.backgroundColor = .systemBlue
         createAccountBtn.setTitleFont(font: .helveticaNeueBold, size: 18)
-        
+        createAccountBtn.addTarget(self, action: #selector(createAccountAction), for: .touchUpInside)
         let stackView = UIStackView()
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,10 @@ class WelcomeViewController: UIViewController {
         loginBtn.setTitleFont(font: .helveticaNeueBold, size: 15)
         loginBtn.setTitleColor(.systemBlue, for: .normal)
     }
-
+    //MARK: OBJC functions
+    @objc private func createAccountAction(){
+        navigationController?.pushViewController(CreateAccountVC(), animated: true)
+    }
 
 }
 
