@@ -26,7 +26,7 @@ class NavigationBar: UIView {
             backImg.heightAnchor.constraint(equalToConstant: 20),
             backImg.widthAnchor.constraint(equalToConstant: 20),
             backImg.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 16),
-            backImg.centerYAnchor.constraint(equalTo: centerYAnchor)
+            backImg.topAnchor.constraint(equalTo: topAnchor)
         ])
         backImg.image = UIImage(systemName: "chevron.backward")
         backImg.contentMode = .scaleAspectFill
@@ -36,7 +36,7 @@ class NavigationBar: UIView {
         appImg.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             appImg.centerXAnchor.constraint(equalTo: centerXAnchor),
-            appImg.centerYAnchor.constraint(equalTo: centerYAnchor),
+            appImg.topAnchor.constraint(equalTo: topAnchor),
             appImg.heightAnchor.constraint(equalToConstant: 35),
             appImg.widthAnchor.constraint(equalToConstant: 35)
         ])

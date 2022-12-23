@@ -7,8 +7,13 @@
 
 import UIKit
 
-class CreateAccountVC: UIViewController {
 
+fileprivate let kTfHeightConstant:CGFloat = 50
+
+class CreateAccountVC: UIViewController {
+    
+    private let dobPicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -22,7 +27,7 @@ class CreateAccountVC: UIViewController {
             appBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             appBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             appBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            appBar.heightAnchor.constraint(equalToConstant: 50)
+            appBar.heightAnchor.constraint(equalToConstant: 40)
         ])
         appBar.backImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backBtnAction)))
         
@@ -39,6 +44,8 @@ class CreateAccountVC: UIViewController {
         createAccountLbl.textColor = .black
         
         let stackView = UIStackView()
+        stackView.spacing = 12
+        stackView.axis = .vertical
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -46,14 +53,60 @@ class CreateAccountVC: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        let tfName = TPTextField()
-        stackView.addArrangedSubview(tfName)
-        tfName.translatesAutoresizingMaskIntoConstraints = false
-        tfName.setTitle(title: "Name")
-        NSLayoutConstraint.activate([
-            tfName.heightAnchor.constraint(equalToConstant: 70)
-        ])
         
+        let tfName = UITextField()
+        stackView.addArrangedSubview(tfName)
+        tfName.placeholder = "Name"
+        tfName.setHeight(height: kTfHeightConstant)
+        tfName.borderStyle = .roundedRect
+        tfName.addToolbar()
+        
+        let tfEmail = UITextField()
+        stackView.addArrangedSubview(tfEmail)
+        tfEmail.setHeight(height: kTfHeightConstant)
+        tfEmail.placeholder = "Phone number or email address"
+        tfEmail.borderStyle = .roundedRect
+        tfEmail.addToolbar()
+        
+        
+        dobPicker.preferredDatePickerStyle = .wheels
+        dobPicker.datePickerMode = .date
+        let tfDOB = UITextField()
+        stackView.addArrangedSubview(tfDOB)
+        tfDOB.placeholder = "Date of birth"
+        tfDOB.borderStyle = .roundedRect
+        tfDOB.setHeight(height: kTfHeightConstant)
+        tfDOB.inputView = dobPicker
+        let displayDateFormatter = DateFormatter()
+        displayDateFormatter.dateFormat = "dd MMM yyyy"
+        tfDOB.addToolbar(doneAction: {
+            tfDOB.text = displayDateFormatter.string(from: self.dobPicker.date)
+        }, cancelAction: nil)
+        
+        let nextBtn = UIButton()
+        view.addSubview(nextBtn)
+        nextBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -8),
+            nextBtn.widthAnchor.constraint(equalToConstant: 70),
+            nextBtn.heightAnchor.constraint(equalToConstant: 40),
+            nextBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -8)
+        ])
+        nextBtn.setTitle("Next", for: .normal)
+        nextBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
+        nextBtn.layer.cornerRadius = 20
+        nextBtn.backgroundColor = .systemBlue
+        
+        let lineView = UIView()
+        view.addSubview(lineView)
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            lineView.heightAnchor.constraint(equalToConstant:1),
+            lineView.bottomAnchor.constraint(equalTo: nextBtn.topAnchor,constant: -8)
+        ])
+        lineView.backgroundColor = .systemGray4
     }
     @objc func backBtnAction(){
         navigationController?.popViewController(animated: true)
