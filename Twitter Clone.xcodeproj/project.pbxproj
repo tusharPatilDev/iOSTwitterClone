@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A187B295735C000126693 /* OTPVerificationVC.swift */; };
 		8E23703F294F757800B04102 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E23703E294F757800B04102 /* CreateAccountVC.swift */; };
 		8E237042294F763A00B04102 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237041294F763A00B04102 /* NavigationBar.swift */; };
 		8E237044294F7BD900B04102 /* TPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237043294F7BD900B04102 /* TPTextField.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E1A187B295735C000126693 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8E23703E294F757800B04102 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		8E237041294F763A00B04102 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		8E237043294F7BD900B04102 /* TPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTextField.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				8E23703E294F757800B04102 /* CreateAccountVC.swift */,
+				8E1A187B295735C000126693 /* OTPVerificationVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8C74EC294EF18700318CA8 /* WelcomeViewController.swift in Sources */,
+				8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */,
 				8E237044294F7BD900B04102 /* TPTextField.swift in Sources */,
 				8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */,
 				8E237046294F80C500B04102 /* CustomView.swift in Sources */,

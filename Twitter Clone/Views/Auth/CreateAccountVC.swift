@@ -95,7 +95,8 @@ class CreateAccountVC: UIViewController {
         nextBtn.setTitle("Next", for: .normal)
         nextBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
         nextBtn.layer.cornerRadius = 20
-        nextBtn.backgroundColor = .systemBlue
+        nextBtn.backgroundColor = .black
+        nextBtn.addTarget(self, action: #selector(onNextBtnClicked), for: .touchUpInside)
         
         let lineView = UIView()
         view.addSubview(lineView)
@@ -107,6 +108,9 @@ class CreateAccountVC: UIViewController {
             lineView.bottomAnchor.constraint(equalTo: nextBtn.topAnchor,constant: -8)
         ])
         lineView.backgroundColor = .systemGray4
+    }
+    @objc func onNextBtnClicked(){
+        navigationController?.pushViewController(OTPVerificationVC(), animated: true)
     }
     @objc func backBtnAction(){
         navigationController?.popViewController(animated: true)
