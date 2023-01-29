@@ -8,6 +8,8 @@
 import UIKit
 
 class OTPVerificationVC: UIViewController {
+    private let bottomView = UIView()
+    var emailOrPhoneNumber = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class OTPVerificationVC: UIViewController {
             weSentCodeLbl.topAnchor.constraint(equalTo: appBar.bottomAnchor,constant: 12)
         ])
         weSentCodeLbl.text = "We sent you a code"
-        weSentCodeLbl.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 28)
+        weSentCodeLbl.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 30)
         weSentCodeLbl.adjustsFontSizeToFitWidth = true
         weSentCodeLbl.minimumScaleFactor = 0.5
         
@@ -47,15 +49,24 @@ class OTPVerificationVC: UIViewController {
             enterCodeBelowLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20)
         ])
         enterCodeBelowLbl.numberOfLines = 0
-        enterCodeBelowLbl.text = "Enter it below to verify +91 942129371391"
+        enterCodeBelowLbl.text = "Enter it below to verify \(emailOrPhoneNumber)"
         enterCodeBelowLbl.font = FontUtility.shared.getFont(font: .helveticaNeueMedium, size: 16)
         enterCodeBelowLbl.textColor = .darkGray
         
+        view.addSubview(bottomView)
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomView.heightAnchor.constraint(equalToConstant: 100),
+            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
         let nextBtn = UIButton()
-        view.addSubview(nextBtn)
+        bottomView.addSubview(nextBtn)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -8),
+            nextBtn.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor,constant: -8),
             nextBtn.widthAnchor.constraint(equalToConstant: 70),
             nextBtn.heightAnchor.constraint(equalToConstant: 40),
             nextBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -8)
@@ -67,7 +78,7 @@ class OTPVerificationVC: UIViewController {
         nextBtn.addTarget(self, action: #selector(onNextBtnClicked), for: .touchUpInside)
         
         let lineView = UIView()
-        view.addSubview(lineView)
+        bottomView.addSubview(lineView)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -78,6 +89,7 @@ class OTPVerificationVC: UIViewController {
         lineView.backgroundColor = .systemGray4
         
         let tfOTP = UITextField()
+        tfOTP.delegate = self
         view.addSubview(tfOTP)
         tfOTP.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -90,10 +102,7 @@ class OTPVerificationVC: UIViewController {
         tfOTP.keyboardType = .numberPad
         tfOTP.borderStyle = .roundedRect
         tfOTP.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 16)
-//        tfOTP.layer.borderColor = UIColor.systemBlue.cgColor
-//        tfOTP.layer.borderWidth = 1.5
-//        tfOTP.layer.cornerRadius = 8
-        tfOTP.addToolbar()
+        
         let didntRecieveOTPBtn = UIButton()
         view.addSubview(didntRecieveOTPBtn)
         didntRecieveOTPBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -104,11 +113,39 @@ class OTPVerificationVC: UIViewController {
         didntRecieveOTPBtn.setTitle("Didn't recieve a text", for: .normal)
         didntRecieveOTPBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
         didntRecieveOTPBtn.setTitleColor(.systemBlue, for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidBecomeInactive(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidBecomeActive(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    @objc func keyboardDidBecomeActive(_ notification: NSNotification){
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+            self.bottomView.frame.origin.y = self.view.frame.height - (keyboardHeight + 100)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+
+    }
+    @objc func keyboardDidBecomeInactive(_ notification: NSNotification){
+        //let mKey = notification.observationInfo?[UIKeyboardFrameEndUserInfoKey]
+        
+        UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
+            self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
+            self.view.layoutIfNeeded()
+        }
     }
     @objc func onNextBtnClicked(){
-        
+        let vc = PasswordVerificationVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc func onBackBtnClicked(){
         navigationController?.popViewController(animated: true)
+    }
+}
+//MARK: UITextfieldDelegate
+extension OTPVerificationVC: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("keyboardDidBecomeActive--- tf")
     }
 }

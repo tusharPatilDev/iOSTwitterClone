@@ -15,6 +15,7 @@
 		8E237048294F80DD00B04102 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E237047294F80DD00B04102 /* CustomView.xib */; };
 		8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F01294F0BBC00987929 /* FontUtility.swift */; };
 		8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F03294F12AE00987929 /* ExtensionManager.swift */; };
+		8E6E9AE72986AC360085EB87 /* PasswordVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */; };
 		8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A7FE22956212C004A8897 /* TPKeyboardBar.swift */; };
 		8E8C74E8294EF18700318CA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74E7294EF18700318CA8 /* AppDelegate.swift */; };
 		8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74E9294EF18700318CA8 /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 		8E237047294F80DD00B04102 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		8E3C7F01294F0BBC00987929 /* FontUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtility.swift; sourceTree = "<group>"; };
 		8E3C7F03294F12AE00987929 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVerificationVC.swift; sourceTree = "<group>"; };
 		8E7A7FE22956212C004A8897 /* TPKeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPKeyboardBar.swift; sourceTree = "<group>"; };
 		8E8C74E4294EF18700318CA8 /* Twitter Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8C74E7294EF18700318CA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				8E23703E294F757800B04102 /* CreateAccountVC.swift */,
 				8E1A187B295735C000126693 /* OTPVerificationVC.swift */,
+				8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				8E8C74EC294EF18700318CA8 /* WelcomeViewController.swift in Sources */,
 				8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */,
+				8E6E9AE72986AC360085EB87 /* PasswordVerificationVC.swift in Sources */,
 				8E237044294F7BD900B04102 /* TPTextField.swift in Sources */,
 				8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */,
 				8E237046294F80C500B04102 /* CustomView.swift in Sources */,
