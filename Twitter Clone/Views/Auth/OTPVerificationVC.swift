@@ -88,8 +88,7 @@ class OTPVerificationVC: UIViewController {
         ])
         lineView.backgroundColor = .systemGray4
         
-        let tfOTP = UITextField()
-        tfOTP.delegate = self
+        let tfOTP = TPTextField()
         view.addSubview(tfOTP)
         tfOTP.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -100,7 +99,7 @@ class OTPVerificationVC: UIViewController {
         ])
         tfOTP.placeholder = " Waiting for SMS to arrive..."
         tfOTP.keyboardType = .numberPad
-        tfOTP.borderStyle = .roundedRect
+       
         tfOTP.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 16)
         
         let didntRecieveOTPBtn = UIButton()
@@ -141,11 +140,5 @@ class OTPVerificationVC: UIViewController {
     }
     @objc func onBackBtnClicked(){
         navigationController?.popViewController(animated: true)
-    }
-}
-//MARK: UITextfieldDelegate
-extension OTPVerificationVC: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("keyboardDidBecomeActive--- tf")
     }
 }

@@ -15,9 +15,9 @@ class CreateAccountVC: UIViewController {
     private let dobPicker = UIDatePicker()
     private let stackView = UIStackView()
     private let bottomView = UIView()
-    private let tfDOB = UITextField()
-    private let tfName = UITextField()
-    private let tfEmail = UITextField()
+    private let tfDOB = TPTextField()
+    private let tfName = TPTextField()
+    private let tfEmail = TPTextField()
     private let useEmailInsteadBtn = UIButton()
     
     override func viewDidLoad() {
@@ -67,12 +67,11 @@ class CreateAccountVC: UIViewController {
         stackView.addArrangedSubview(tfName)
         tfName.placeholder = "Name"
         tfName.setHeight(height: kTfHeightConstant)
-        tfName.borderStyle = .roundedRect
+//        tfName.borderStyle = .roundedRect
         
         stackView.addArrangedSubview(tfEmail)
         tfEmail.setHeight(height: kTfHeightConstant)
         tfEmail.placeholder = "Email address"
-        tfEmail.borderStyle = .roundedRect
         
         
         
@@ -81,9 +80,8 @@ class CreateAccountVC: UIViewController {
         
         stackView.addArrangedSubview(tfDOB)
         tfDOB.placeholder = "Date of birth"
-        tfDOB.borderStyle = .roundedRect
         tfDOB.setHeight(height: kTfHeightConstant)
-        tfDOB.inputView = dobPicker
+        tfDOB.pickerView = dobPicker
         let displayDateFormatter = DateFormatter()
         displayDateFormatter.dateFormat = "dd MMM yyyy"
 //        tfDOB.addToolbar(doneAction: {
@@ -169,11 +167,16 @@ class CreateAccountVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-extension CreateAccountVC: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+extension CreateAccountVC: TPTextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: TPTextField) {
+        
+    }
+    
+
+    func textFieldDidStartEditing(_ textField: TPTextField) {
         switch textField{
         case tfDOB:
-            let inputViewHeight = (textField.inputView?.frame.height ?? 0) + 100
+            let inputViewHeight = textField.inputViewHeight + 100
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
                 self.stackView.frame.origin.y = 180
                 //self.bottomView.frame.origin.y = self.view.frame.height-(textField.inputView?.frame.height ?? 0)
@@ -193,10 +196,14 @@ extension CreateAccountVC: UITextFieldDelegate{
                 self.stackView.frame.origin.y = 150
                 self.bottomView.frame.origin.y = (self.view.frame.height/2) - 30
                 self.view.layoutIfNeeded()
-            }, completion: nil)
+            }) { _ in
+                self.view.layoutIfNeeded()
+            }
             useEmailInsteadBtn.isHidden = true
         default:
             print("something went wrong")
         }
     }
+    
 }
+

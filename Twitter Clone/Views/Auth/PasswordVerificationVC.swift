@@ -2,7 +2,7 @@
 //  PasswordVerificationVC.swift
 //  Twitter Clone
 //
-//  Created by Guest on 29/01/23.
+//  Created by HackinTushar on 29/01/23.
 //
 
 import UIKit
@@ -49,7 +49,7 @@ class PasswordVerificationVC: UIViewController {
         passwordTypeLbl.font = FontUtility.shared.getFont(font: .helveticaNeueMedium, size: 18)
         passwordTypeLbl.textColor = .systemGray4
         
-        let tfPassword = UITextField()
+        let tfPassword = TPTextField()
         tfPassword.placeholder = "Password"
         view.addSubview(tfPassword)
         tfPassword.translatesAutoresizingMaskIntoConstraints = false
@@ -59,10 +59,8 @@ class PasswordVerificationVC: UIViewController {
             tfPassword.heightAnchor.constraint(equalToConstant: 50),
             tfPassword.topAnchor.constraint(equalTo: passwordTypeLbl.bottomAnchor,constant: 12)
         ])
-        //tfPassword.borderStyle = .roundedRect
-        tfPassword.layer.borderColor = UIColor.blue.cgColor
-        tfPassword.layer.borderWidth = 1
-        tfPassword.isSecureTextEntry = true
+        tfPassword.isSecureText = true
+        
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -99,7 +97,9 @@ class PasswordVerificationVC: UIViewController {
         ])
         lineView.backgroundColor = .systemGray4
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBecomeInactive), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBecomeActive(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
     }
     @objc func keyboardWillBecomeActive(_ notification:NSNotification){
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
@@ -112,6 +112,7 @@ class PasswordVerificationVC: UIViewController {
         }, completion: nil)
     }
     @objc func keyboardWillBecomeInactive(){
+        print("keyboardWillBecomeInactive-----")
         UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
             self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
             self.view.layoutIfNeeded()

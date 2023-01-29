@@ -12,11 +12,14 @@ extension UIButton{
         titleLabel?.font = FontUtility.shared.getFont(font: font, size: size)
     }
 }
-extension UITextField{
+extension UIView{
     func setHeight(height:CGFloat){
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
+}
+extension UITextField{
+    
     func addToolbar(doneAction:(() -> Void)? = nil,cancelAction:(() -> Void)? = nil){
         let toolBar = TPKeyboardBar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         
