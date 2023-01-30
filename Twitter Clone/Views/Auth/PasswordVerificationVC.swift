@@ -119,7 +119,8 @@ class PasswordVerificationVC: UIViewController {
         }
     }
     @objc func onNextBtnClicked(){
-       
+        let vc = PickProfileVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

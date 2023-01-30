@@ -25,6 +25,7 @@
 		8E8C74FF294EF18A00318CA8 /* Twitter_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74FE294EF18A00318CA8 /* Twitter_CloneTests.swift */; };
 		8E8C7509294EF18A00318CA8 /* Twitter_CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C7508294EF18A00318CA8 /* Twitter_CloneUITests.swift */; };
 		8E8C750B294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C750A294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift */; };
+		8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		8E8C7504294EF18A00318CA8 /* Twitter CloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Twitter CloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8C7508294EF18A00318CA8 /* Twitter_CloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneUITests.swift; sourceTree = "<group>"; };
 		8E8C750A294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				8E23703E294F757800B04102 /* CreateAccountVC.swift */,
 				8E1A187B295735C000126693 /* OTPVerificationVC.swift */,
 				8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */,
+				8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				8E237042294F763A00B04102 /* NavigationBar.swift in Sources */,
 				8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */,
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
+				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,
 				8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
