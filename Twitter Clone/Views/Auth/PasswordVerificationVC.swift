@@ -108,14 +108,14 @@ class PasswordVerificationVC: UIViewController {
         let keyboardHeight = keyboardRectangle.height
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
             self.bottomView.frame.origin.y = self.view.frame.height - (keyboardHeight + 100)
-            self.view.layoutIfNeeded()
+            //self.view.layoutIfNeeded()
         }, completion: nil)
     }
     @objc func keyboardWillBecomeInactive(){
         print("keyboardWillBecomeInactive-----")
         UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
             self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
-            self.view.layoutIfNeeded()
+            //self.view.layoutIfNeeded()
         }
     }
     @objc func onNextBtnClicked(){

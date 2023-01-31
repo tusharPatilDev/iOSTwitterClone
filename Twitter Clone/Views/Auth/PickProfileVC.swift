@@ -145,7 +145,8 @@ class PickProfileVC: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     @objc func skipForNowAction(){
-        
+        let vc = EnterUsernameVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 //MARK: UINavigationControllerDelegate, UIImagePickerDelegate

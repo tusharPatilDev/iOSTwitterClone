@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+fileprivate let kNavigationBarDefaultHeight:CGFloat = 50
 extension UIButton{
     func setTitleFont(font:AppFonts,size:CGFloat){
         titleLabel?.font = FontUtility.shared.getFont(font: font, size: size)
@@ -39,5 +39,19 @@ extension UITextField{
     }
     
 }
-
+extension UIViewController{
+    func addNavigationBar(hideBackBtn:Bool = false) -> NavigationBar{
+        let appBar = NavigationBar()
+        view.addSubview(appBar)
+        appBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            appBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            appBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            appBar.heightAnchor.constraint(equalToConstant: kNavigationBarDefaultHeight),
+            appBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
+        appBar.backImg.isHidden = hideBackBtn
+        return appBar
+    }
+}
 

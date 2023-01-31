@@ -13,6 +13,7 @@
 		8E237044294F7BD900B04102 /* TPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237043294F7BD900B04102 /* TPTextField.swift */; };
 		8E237046294F80C500B04102 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237045294F80C500B04102 /* CustomView.swift */; };
 		8E237048294F80DD00B04102 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E237047294F80DD00B04102 /* CustomView.xib */; };
+		8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */; };
 		8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F01294F0BBC00987929 /* FontUtility.swift */; };
 		8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F03294F12AE00987929 /* ExtensionManager.swift */; };
 		8E6E9AE72986AC360085EB87 /* PasswordVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */; };
@@ -52,6 +53,7 @@
 		8E237043294F7BD900B04102 /* TPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTextField.swift; sourceTree = "<group>"; };
 		8E237045294F80C500B04102 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		8E237047294F80DD00B04102 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameVC.swift; sourceTree = "<group>"; };
 		8E3C7F01294F0BBC00987929 /* FontUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtility.swift; sourceTree = "<group>"; };
 		8E3C7F03294F12AE00987929 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVerificationVC.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8E1A187B295735C000126693 /* OTPVerificationVC.swift */,
 				8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */,
 				8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */,
+				8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				8E237042294F763A00B04102 /* NavigationBar.swift in Sources */,
 				8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */,
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
+				8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */,
 				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,
 				8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */,
 			);
