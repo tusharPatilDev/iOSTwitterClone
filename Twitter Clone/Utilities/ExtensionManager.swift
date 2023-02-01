@@ -17,6 +17,14 @@ extension UIView{
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
+    func addBottomBorder(bColor:UIColor,bHeight:CGFloat = 1){
+        layoutIfNeeded()
+        let bottomLine = CALayer()
+        print("mLAyer-- \(self.frame.size.height)")
+        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: bHeight)
+        bottomLine.backgroundColor = bColor.cgColor
+        layer.addSublayer(bottomLine)
+    }
 }
 extension UITextField{
     

@@ -82,7 +82,8 @@ class EnterUsernameVC: UIViewController {
         nextBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
         nextBtn.layer.cornerRadius = 20
         nextBtn.backgroundColor = .black
-
+        nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
+        
         let lineView = UIView()
         bottomView.addSubview(lineView)
         lineView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +99,10 @@ class EnterUsernameVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBecomeActive(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
-    
+    @objc func nextBtnAction(){
+        let vc = ChooseInterestVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func keyboardWillBecomeActive(_ notification:NSNotification){
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
