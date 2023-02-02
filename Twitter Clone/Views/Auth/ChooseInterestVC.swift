@@ -9,6 +9,23 @@ import UIKit
 
 class ChooseInterestVC: UIViewController {
 
+    private let interestsDataSource = [
+        "Music","Entertainment","Sports","Gaming","Fashion & beauty","Food","Business & finance","Arts & culture","Technology","Travel"
+    ]
+    private let selectedInterestCountLbl = UILabel()
+    private let nextBtn = UIButton()
+    
+    private var selectedInterest:[String] = []{
+        didSet{
+            if selectedInterest.count >= 3{
+                nextBtn.enableBtn(bColor: .black)
+            } else {
+                nextBtn.enableBtn(bColor: .black.withAlphaComponent(0.5))
+            }
+            selectedInterestCountLbl.text = "\(selectedInterest.count) of 3 selected"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initViews()
@@ -16,7 +33,7 @@ class ChooseInterestVC: UIViewController {
     }
     private func initViews(){
         view.backgroundColor = .systemBackground
-        let appBar = addNavigationBar()
+        let appBar = addNavigationBar(hideBackBtn: true)
         
         let topView = UIView()
         view.addSubview(topView)
@@ -63,9 +80,9 @@ class ChooseInterestVC: UIViewController {
             middleView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             middleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             middleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            middleView.heightAnchor.constraint(equalToConstant: 8)
+            middleView.heightAnchor.constraint(equalToConstant: 5)
         ])
-        middleView.backgroundColor = #colorLiteral(red: 0.9774852635, green: 0.9774852635, blue: 0.9774852635, alpha: 1)
+        middleView.backgroundColor = #colorLiteral(red: 0.9730937998, green: 0.9730937998, blue: 0.9730937998, alpha: 0.5)
         
         
         let bottomView = UIView()
@@ -78,8 +95,6 @@ class ChooseInterestVC: UIViewController {
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        
-        let nextBtn = UIButton()
         bottomView.addSubview(nextBtn)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -92,6 +107,7 @@ class ChooseInterestVC: UIViewController {
         nextBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
         nextBtn.layer.cornerRadius = 20
         nextBtn.backgroundColor = .black
+        nextBtn.disableBtn(bColor: UIColor.black.withAlphaComponent(0.5))
         //nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
         
         let lineView = UIView()
@@ -105,6 +121,16 @@ class ChooseInterestVC: UIViewController {
         ])
         lineView.backgroundColor = .systemGray4
         
+        bottomView.addSubview(selectedInterestCountLbl)
+        selectedInterestCountLbl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            selectedInterestCountLbl.centerYAnchor.constraint(equalTo: nextBtn.centerYAnchor),
+            selectedInterestCountLbl.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor,constant: 8),
+            selectedInterestCountLbl.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor,constant: -8)
+        ])
+        selectedInterestCountLbl.font = FontUtility.shared.getFont(font: .helveticaNeueMedium, size: 16)
+        selectedInterestCountLbl.textColor = .darkGray
+        
         let collectionViewParentView = UIView()
         view.addSubview(collectionViewParentView)
         collectionViewParentView.translatesAutoresizingMaskIntoConstraints = false
@@ -114,10 +140,9 @@ class ChooseInterestVC: UIViewController {
             collectionViewParentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionViewParentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        
+        collectionViewParentView.addTopBorder(bColor: .systemGroupedBackground, bHeight: 1.5)
         let mLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             // make sure that there is a slightly larger gap at the top of each row
-        let padding = UIScreen.main.bounds.width*0.05
         mLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             // set a standard item size of 60 * 60
         mLayout.itemSize = CGSize(width: 20, height: 20)
@@ -130,28 +155,43 @@ class ChooseInterestVC: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: collectionViewParentView.leadingAnchor,constant: 5),
             collectionView.trailingAnchor.constraint(equalTo: collectionViewParentView.trailingAnchor,constant: -5),
-            collectionView.topAnchor.constraint(equalTo: collectionViewParentView.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: collectionViewParentView.topAnchor,constant: 12),
             collectionView.bottomAnchor.constraint(equalTo: collectionViewParentView.bottomAnchor)
         ])
-        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cell")
+        collectionView.register(ChooseInterestCVC.classForCoder(), forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.reloadData()
     }
 }
 extension ChooseInterestVC: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return interestsDataSource.count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let mCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        print("MYCELLL-----")
-        mCell.backgroundColor = .red
+        let mCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseInterestCVC
+        mCell.interestTitle = interestsDataSource[indexPath.row]
+        mCell.isChecked = selectedInterest.contains(interestsDataSource[indexPath.row])
         return mCell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if selectedInterest.contains(interestsDataSource[indexPath.row]){
+            var index = 0
+            for i in selectedInterest{
+                if interestsDataSource[indexPath.row] == i{
+                    break
+                }
+                index += 1
+            }
+            selectedInterest.remove(at: index)
+        } else {
+            selectedInterest.append(interestsDataSource[indexPath.row])
+        }
+        collectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            let padding = 5

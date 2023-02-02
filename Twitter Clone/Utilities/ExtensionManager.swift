@@ -11,6 +11,14 @@ extension UIButton{
     func setTitleFont(font:AppFonts,size:CGFloat){
         titleLabel?.font = FontUtility.shared.getFont(font: font, size: size)
     }
+    func disableBtn(bColor:UIColor){
+        backgroundColor = bColor
+        isEnabled = false
+    }
+    func enableBtn(bColor:UIColor){
+        backgroundColor = bColor
+        isEnabled = true
+    }
 }
 extension UIView{
     func setHeight(height:CGFloat){
@@ -20,8 +28,14 @@ extension UIView{
     func addBottomBorder(bColor:UIColor,bHeight:CGFloat = 1){
         layoutIfNeeded()
         let bottomLine = CALayer()
-        print("mLAyer-- \(self.frame.size.height)")
         bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: bHeight)
+        bottomLine.backgroundColor = bColor.cgColor
+        layer.addSublayer(bottomLine)
+    }
+    func addTopBorder(bColor:UIColor,bHeight:CGFloat = 1){
+        layoutIfNeeded()
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y:1, width: self.frame.size.width, height: bHeight)
         bottomLine.backgroundColor = bColor.cgColor
         layer.addSublayer(bottomLine)
     }

@@ -40,6 +40,6 @@ class NavigationBar: UIView {
             appImg.heightAnchor.constraint(equalToConstant: 35),
             appImg.widthAnchor.constraint(equalToConstant: 35)
         ])
-        //appImg.image = #imageLiteral(resourceName: "icTwitter")
+        appImg.image = #imageLiteral(resourceName: "icTwitter")
     }
 }

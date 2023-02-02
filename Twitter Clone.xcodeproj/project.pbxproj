@@ -27,6 +27,7 @@
 		8E8C74FF294EF18A00318CA8 /* Twitter_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74FE294EF18A00318CA8 /* Twitter_CloneTests.swift */; };
 		8E8C7509294EF18A00318CA8 /* Twitter_CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C7508294EF18A00318CA8 /* Twitter_CloneUITests.swift */; };
 		8E8C750B294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C750A294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift */; };
+		8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */; };
 		8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		8E8C7504294EF18A00318CA8 /* Twitter CloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Twitter CloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8C7508294EF18A00318CA8 /* Twitter_CloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneUITests.swift; sourceTree = "<group>"; };
 		8E8C750A294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_CloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestCVC.swift; sourceTree = "<group>"; };
 		8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 		8E8C74E6294EF18700318CA8 /* Twitter Clone */ = {
 			isa = PBXGroup;
 			children = (
+				8ED8D33B298B28150094CB8E /* Cells */,
 				8E237040294F761600B04102 /* CustomViews */,
 				8E23703C294F755100B04102 /* Views */,
 				8E3C7F00294F0BA300987929 /* Utilities */,
@@ -209,6 +212,14 @@
 				8E8C750A294EF18A00318CA8 /* Twitter_CloneUITestsLaunchTests.swift */,
 			);
 			path = "Twitter CloneUITests";
+			sourceTree = "<group>";
+		};
+		8ED8D33B298B28150094CB8E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */,
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
 				8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */,
+				8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */,
 				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,
 				8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */,
 			);
