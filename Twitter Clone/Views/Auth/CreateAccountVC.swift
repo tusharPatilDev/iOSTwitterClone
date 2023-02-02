@@ -19,6 +19,8 @@ class CreateAccountVC: UIViewController {
     private let tfName = TPTextField()
     private let tfEmail = TPTextField()
     private let useEmailInsteadBtn = UIButton()
+    private var bottomViewBottomConstraint:NSLayoutConstraint?
+    private var stackViewCenterYConstraint:NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,11 +61,11 @@ class CreateAccountVC: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30)
         ])
+        stackViewCenterYConstraint = stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        stackViewCenterYConstraint?.isActive = true
         
-       
         stackView.addArrangedSubview(tfName)
         tfName.placeholder = "Name"
         tfName.setHeight(height: kTfHeightConstant)
@@ -91,11 +93,12 @@ class CreateAccountVC: UIViewController {
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 100),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        bottomViewBottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        bottomViewBottomConstraint?.isActive = true
         
         let nextBtn = UIButton()
         bottomView.addSubview(nextBtn)
@@ -138,20 +141,34 @@ class CreateAccountVC: UIViewController {
         useEmailInsteadBtn.setTitleColor(.black, for: .normal)
         useEmailInsteadBtn.layer.cornerRadius = 20
         useEmailInsteadBtn.addTarget(self, action: #selector(useEmailInsteadBtnAction), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBecomeActive(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidBecomeInactive), name: UIResponder.keyboardWillHideNotification, object: nil)
         tfEmail.keyboardType = .emailAddress
         useEmailInsteadBtn.tag = 1
     }
-    @objc func keyboardDidBecomeInactive(){
-        print("keyboardDidBecomeInactive----")
-        UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
-            self.stackView.frame.origin.y = self.view.frame.height/2
-            self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
+
+    @objc func keyboardWillBecomeActive(_ notification:NSNotification){
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+            self.stackViewCenterYConstraint?.constant = -keyboardHeight/2
+            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - 30)
             self.view.layoutIfNeeded()
-        }
+        }, completion: nil)
+        
+    }
+    @objc func keyboardDidBecomeInactive(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+            self.stackViewCenterYConstraint?.constant = 0
+            self.bottomViewBottomConstraint?.constant = 0
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     @objc func useEmailInsteadBtnAction(){
-        print("useEmailInsteadBtnAction---- \(useEmailInsteadBtn.tag)")
         if useEmailInsteadBtn.tag == 1{
             useEmailInsteadBtn.tag = 0
         } else {
@@ -178,27 +195,27 @@ extension CreateAccountVC: TPTextFieldDelegate{
         case tfDOB:
             let inputViewHeight = textField.inputViewHeight + 100
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                self.stackView.frame.origin.y = 180
+                self.stackViewCenterYConstraint?.constant = -80
                 //self.bottomView.frame.origin.y = self.view.frame.height-(textField.inputView?.frame.height ?? 0)
-                self.bottomView.frame.origin.y = (self.view.frame.height - inputViewHeight)
+                self.bottomViewBottomConstraint?.constant = -(textField.inputViewHeight)
                 self.view.layoutIfNeeded()
             }, completion: nil)
             useEmailInsteadBtn.isHidden = true
         case tfEmail:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                self.stackView.frame.origin.y = 150
-                self.bottomView.frame.origin.y = (self.view.frame.height/2) - 30
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+//                self.stackViewCenterYConstraint?.constant = -80
+//                self.bottomView.frame.origin.y = (self.view.frame.height/2) - 30
+//                self.view.layoutIfNeeded()
+//            }, completion: nil)
             useEmailInsteadBtn.isHidden = false
         case tfName:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                self.stackView.frame.origin.y = 150
-                self.bottomView.frame.origin.y = (self.view.frame.height/2) - 30
-                self.view.layoutIfNeeded()
-            }) { _ in
-                self.view.layoutIfNeeded()
-            }
+//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+//                self.stackViewCenterYConstraint?.constant = -80
+//                self.bottomView.frame.origin.y = (self.view.frame.height/2) - 30
+//                self.view.layoutIfNeeded()
+//            }) { _ in
+//                self.view.layoutIfNeeded()
+//            }
             useEmailInsteadBtn.isHidden = true
         default:
             print("something went wrong")

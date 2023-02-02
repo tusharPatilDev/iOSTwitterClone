@@ -9,6 +9,8 @@ import UIKit
 
 class PasswordVerificationVC: UIViewController {
     private let bottomView = UIView()
+    private var bottomViewBottomConstraint:NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -64,11 +66,12 @@ class PasswordVerificationVC: UIViewController {
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 100),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        bottomViewBottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        bottomViewBottomConstraint?.isActive = true
         
         let nextBtn = UIButton()
         bottomView.addSubview(nextBtn)
@@ -107,15 +110,15 @@ class PasswordVerificationVC: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-            self.bottomView.frame.origin.y = self.view.frame.height - (keyboardHeight + 100)
-            //self.view.layoutIfNeeded()
+            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - 30)
+            self.view.layoutIfNeeded()
         }, completion: nil)
     }
     @objc func keyboardWillBecomeInactive(){
         print("keyboardWillBecomeInactive-----")
         UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
-            self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
-            //self.view.layoutIfNeeded()
+            self.bottomViewBottomConstraint?.constant = 0
+            self.view.layoutIfNeeded()
         }
     }
     @objc func onNextBtnClicked(){

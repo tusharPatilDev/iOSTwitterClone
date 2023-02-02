@@ -10,6 +10,7 @@ import UIKit
 class OTPVerificationVC: UIViewController {
     private let bottomView = UIView()
     var emailOrPhoneNumber = String()
+    private var bottomViewBottomConstraint:NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +57,12 @@ class OTPVerificationVC: UIViewController {
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 100),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        bottomViewBottomConstraint =  bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        bottomViewBottomConstraint?.isActive = true
         
         let nextBtn = UIButton()
         bottomView.addSubview(nextBtn)
@@ -121,7 +123,7 @@ class OTPVerificationVC: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-            self.bottomView.frame.origin.y = self.view.frame.height - (keyboardHeight + 100)
+            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - 30)
             self.view.layoutIfNeeded()
         }, completion: nil)
 
@@ -130,7 +132,7 @@ class OTPVerificationVC: UIViewController {
         //let mKey = notification.observationInfo?[UIKeyboardFrameEndUserInfoKey]
         
         UIView.animate(withDuration: 0.5,delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
-            self.bottomView.frame.origin.y = self.view.safeAreaLayoutGuide.layoutFrame.height
+            self.bottomViewBottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
         }
     }
