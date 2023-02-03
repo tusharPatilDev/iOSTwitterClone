@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */; };
 		8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A187B295735C000126693 /* OTPVerificationVC.swift */; };
 		8E23703F294F757800B04102 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E23703E294F757800B04102 /* CreateAccountVC.swift */; };
 		8E237042294F763A00B04102 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237041294F763A00B04102 /* NavigationBar.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubInterestVC.swift; sourceTree = "<group>"; };
 		8E1A187B295735C000126693 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8E23703E294F757800B04102 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		8E237041294F763A00B04102 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */,
 				8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */,
 				8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */,
+				8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				8E237042294F763A00B04102 /* NavigationBar.swift in Sources */,
 				8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */,
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
+				8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */,
 				8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */,
 				8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */,
 				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,

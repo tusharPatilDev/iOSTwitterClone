@@ -108,7 +108,7 @@ class ChooseInterestVC: UIViewController {
         nextBtn.layer.cornerRadius = 20
         nextBtn.backgroundColor = .black
         nextBtn.disableBtn(bColor: UIColor.black.withAlphaComponent(0.5))
-        //nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
+        nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
         
         let lineView = UIView()
         bottomView.addSubview(lineView)
@@ -163,6 +163,10 @@ class ChooseInterestVC: UIViewController {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.reloadData()
+    }
+    @objc func nextBtnAction(){
+        let vc = SelectSubInterestVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension ChooseInterestVC: UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource{
