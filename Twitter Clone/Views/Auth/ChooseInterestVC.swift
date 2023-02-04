@@ -166,6 +166,7 @@ class ChooseInterestVC: UIViewController {
     }
     @objc func nextBtnAction(){
         let vc = SelectSubInterestVC()
+        vc.selectedInterests = selectedInterest
         navigationController?.pushViewController(vc, animated: true)
     }
 }

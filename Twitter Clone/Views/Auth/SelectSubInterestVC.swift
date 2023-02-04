@@ -8,7 +8,9 @@
 import UIKit
 
 class SelectSubInterestVC: UIViewController {
-
+    private let tableView = UITableView()
+    var selectedInterests:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initViews()
@@ -104,6 +106,65 @@ class SelectSubInterestVC: UIViewController {
         ])
         lineView.backgroundColor = .systemGray4
         
+        let tableViewParentView = UIView()
+        view.addSubview(tableViewParentView)
+        tableViewParentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableViewParentView.topAnchor.constraint(equalTo: middleView.bottomAnchor),
+            tableViewParentView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
+            tableViewParentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableViewParentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        tableViewParentView.addTopBorder(bColor: .systemGroupedBackground, bHeight: 1.5)
+        
+        tableViewParentView.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: tableViewParentView.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: tableViewParentView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: tableViewParentView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: tableViewParentView.trailingAnchor)
+        ])
+        tableView.register(TagCollectionTVC.self, forCellReuseIdentifier: TagCollectionTVC.cellIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentOffset = CGPoint(x: 0, y: 0)
     }
     
+}
+//MARK: UITableViewDelegate, UITableViewDataSource
+extension SelectSubInterestVC: UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TagCollectionTVC.cellIdentifier) as? TagCollectionTVC{
+            print("iscellClickable-- \(cell.userInteractionEnabledWhileDragging) enabled \(cell.isUserInteractionEnabled)")
+            return cell
+        }
+        return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 25))
+            
+        let label = UILabel()
+        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: 20)
+        label.text = selectedInterests[section]
+        label.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 16)
+        label.textColor = .black
+            
+        headerView.addSubview(label)
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return selectedInterests.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
 }
