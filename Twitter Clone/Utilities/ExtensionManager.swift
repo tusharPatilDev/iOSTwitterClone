@@ -76,4 +76,15 @@ extension UIViewController{
         return appBar
     }
 }
-
+// MARK: Detect Notch
+// Credit - https://medium.com/@cafielo/how-to-detect-notch-screen-in-swift-56271827625d
+extension UIDevice {
+    var hasNotch: Bool {
+        let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom > 0
+    }
+    var safeAreaBottom:CGFloat{
+        let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom
+    }
+}

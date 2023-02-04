@@ -11,7 +11,7 @@ class TagCVC: UICollectionViewCell {
     
     static let cellIdentifer = "TagCVC"
     private let tagTitleLbl = UILabel()
-    private let mainView = UIView()
+    let mainView = UIView()
     
     var tagTitle:String = ""{
         didSet{
@@ -41,9 +41,11 @@ class TagCVC: UICollectionViewCell {
             mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5),
             mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 5)
         ])
-        
-        mainView.layer.cornerRadius = 8
-        mainView.backgroundColor = .red
+        contentView.layoutIfNeeded()
+        mainView.layoutIfNeeded()
+        mainView.layer.cornerRadius = mainView.frame.height/2
+        mainView.layer.borderColor = UIColor.systemGray4.cgColor
+        mainView.layer.borderWidth = 1
         
         mainView.addSubview(tagTitleLbl)
         tagTitleLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +55,7 @@ class TagCVC: UICollectionViewCell {
             tagTitleLbl.trailingAnchor.constraint(equalTo: mainView.trailingAnchor,constant: -20),
             tagTitleLbl.leadingAnchor.constraint(equalTo: mainView.leadingAnchor,constant: 20)
         ])
+        tagTitleLbl.font = FontUtility.shared.getFont(font: .helveticaNeueMedium, size: 16)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

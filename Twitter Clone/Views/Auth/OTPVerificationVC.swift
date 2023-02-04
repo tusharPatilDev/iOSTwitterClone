@@ -14,6 +14,7 @@ class OTPVerificationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViews()
     }
     private func setupViews(){
@@ -123,7 +124,7 @@ class OTPVerificationVC: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - 30)
+            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - UIDevice.current.safeAreaBottom)
             self.view.layoutIfNeeded()
         }, completion: nil)
 

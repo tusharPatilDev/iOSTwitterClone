@@ -156,7 +156,7 @@ class CreateAccountVC: UIViewController {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
             self.stackViewCenterYConstraint?.constant = -keyboardHeight/2
-            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - 30)
+            self.bottomViewBottomConstraint?.constant = -(keyboardHeight - UIDevice.current.safeAreaBottom)
             self.view.layoutIfNeeded()
         }, completion: nil)
         

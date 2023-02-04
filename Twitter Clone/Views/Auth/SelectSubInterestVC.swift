@@ -129,6 +129,7 @@ class SelectSubInterestVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentOffset = CGPoint(x: 0, y: 0)
+        tableView.separatorStyle = .none
     }
     
 }
@@ -137,7 +138,7 @@ extension SelectSubInterestVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: TagCollectionTVC.cellIdentifier) as? TagCollectionTVC{
-            print("iscellClickable-- \(cell.userInteractionEnabledWhileDragging) enabled \(cell.isUserInteractionEnabled)")
+            cell.tags = ["Premier League","WWE","Esports","Cricket","UEFA Champions League","Manchester United","Basketball","Sports"]
             return cell
         }
         return UITableViewCell()
@@ -165,6 +166,6 @@ extension SelectSubInterestVC: UITableViewDelegate,UITableViewDataSource{
         return selectedInterests.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 155
     }
 }
