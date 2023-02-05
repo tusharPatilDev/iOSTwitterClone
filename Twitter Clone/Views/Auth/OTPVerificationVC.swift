@@ -19,16 +19,7 @@ class OTPVerificationVC: UIViewController {
     }
     private func setupViews(){
         view.backgroundColor = .systemBackground
-        let appBar = NavigationBar()
-        view.addSubview(appBar)
-        appBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            appBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            appBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            appBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            appBar.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        appBar.backImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onBackBtnClicked)))
+        let appBar = addNavigationBar()
         let weSentCodeLbl = UILabel()
         view.addSubview(weSentCodeLbl)
         weSentCodeLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -140,8 +131,5 @@ class OTPVerificationVC: UIViewController {
     @objc func onNextBtnClicked(){
         let vc = PasswordVerificationVC()
         navigationController?.pushViewController(vc, animated: true)
-    }
-    @objc func onBackBtnClicked(){
-        navigationController?.popViewController(animated: true)
     }
 }

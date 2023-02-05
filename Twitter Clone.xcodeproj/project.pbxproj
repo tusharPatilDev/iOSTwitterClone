@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */; };
+		8E14C065298E67CF00F5BA3A /* FollowOneAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14C064298E67CF00F5BA3A /* FollowOneAccountVC.swift */; };
+		8E14C067298E6D4700F5BA3A /* UserProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */; };
 		8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A187B295735C000126693 /* OTPVerificationVC.swift */; };
 		8E23703F294F757800B04102 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E23703E294F757800B04102 /* CreateAccountVC.swift */; };
 		8E237042294F763A00B04102 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E237041294F763A00B04102 /* NavigationBar.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubInterestVC.swift; sourceTree = "<group>"; };
+		8E14C064298E67CF00F5BA3A /* FollowOneAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowOneAccountVC.swift; sourceTree = "<group>"; };
+		8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTVC.swift; sourceTree = "<group>"; };
 		8E1A187B295735C000126693 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8E23703E294F757800B04102 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		8E237041294F763A00B04102 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */,
 				8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */,
 				8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */,
+				8E14C064298E67CF00F5BA3A /* FollowOneAccountVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */,
 				8ED6CD6E298E2D07009F894F /* TagCollectionTVC.swift */,
 				8ED6CD70298E2FC5009F894F /* TagCVC.swift */,
+				8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -367,6 +373,8 @@
 			files = (
 				8E8C74EC294EF18700318CA8 /* WelcomeViewController.swift in Sources */,
 				8E1A187C295735C000126693 /* OTPVerificationVC.swift in Sources */,
+				8E14C067298E6D4700F5BA3A /* UserProfileTVC.swift in Sources */,
+				8E14C065298E67CF00F5BA3A /* FollowOneAccountVC.swift in Sources */,
 				8E6E9AE72986AC360085EB87 /* PasswordVerificationVC.swift in Sources */,
 				8E5D0E33298AA6A700E71266 /* ChooseInterestVC.swift in Sources */,
 				8E237044294F7BD900B04102 /* TPTextField.swift in Sources */,

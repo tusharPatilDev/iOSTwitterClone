@@ -73,7 +73,13 @@ extension UIViewController{
             appBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         appBar.backImg.isHidden = hideBackBtn
+        if !hideBackBtn{
+            appBar.backImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onBackBtnClicked)))
+        }
         return appBar
+    }
+    @objc func onBackBtnClicked(){
+        navigationController?.popViewController(animated: true)
     }
 }
 // MARK: Detect Notch
