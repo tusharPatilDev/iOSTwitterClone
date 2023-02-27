@@ -76,8 +76,8 @@ class FollowOneAccountVC: UIViewController {
         nextBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
         nextBtn.layer.cornerRadius = 20
         nextBtn.backgroundColor = .black
-        nextBtn.disableBtn(bColor: UIColor.black.withAlphaComponent(0.5))
-        //nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
+       // nextBtn.disableBtn(bColor: UIColor.black.withAlphaComponent(0.5))
+        nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
         
         let lineView = UIView()
         bottomView.addSubview(lineView)
@@ -113,6 +113,10 @@ class FollowOneAccountVC: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+    }
+    //MARK: OBJC Functions
+    @objc func nextBtnAction(){
+        navigationController?.pushViewController(TabController(), animated: true)
     }
 }
 //MARK: UITableViewDelegate,UITableViewDataSource
