@@ -26,6 +26,7 @@ class TabController: UITabBarController {
                                                     title: String,
                                                     image: UIImage?) -> UIViewController {
           let navController = UINavigationController(rootViewController: rootViewController)
+        navController.setNavigationBarHidden(true, animated: true)
           navController.tabBarItem.title = title
           navController.tabBarItem.image = image
           navController.navigationBar.prefersLargeTitles = true
