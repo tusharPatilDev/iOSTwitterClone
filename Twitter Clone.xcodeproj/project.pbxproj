@@ -18,6 +18,7 @@
 		8E237048294F80DD00B04102 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E237047294F80DD00B04102 /* CustomView.xib */; };
 		8E2D6175298D908100C34F08 /* DHCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D6174298D908100C34F08 /* DHCollectionView.swift */; };
 		8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */; };
+		8E3AF77E29AFC15A00650C19 /* TweetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */; };
 		8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F01294F0BBC00987929 /* FontUtility.swift */; };
 		8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F03294F12AE00987929 /* ExtensionManager.swift */; };
 		8E5D0E33298AA6A700E71266 /* ChooseInterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */; };
@@ -71,6 +72,7 @@
 		8E237047294F80DD00B04102 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		8E2D6174298D908100C34F08 /* DHCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHCollectionView.swift; sourceTree = "<group>"; };
 		8E36E82D298955E700CEF078 /* EnterUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameVC.swift; sourceTree = "<group>"; };
+		8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTVC.swift; sourceTree = "<group>"; };
 		8E3C7F01294F0BBC00987929 /* FontUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtility.swift; sourceTree = "<group>"; };
 		8E3C7F03294F12AE00987929 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestVC.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				8ED6CD6E298E2D07009F894F /* TagCollectionTVC.swift */,
 				8ED6CD70298E2FC5009F894F /* TagCVC.swift */,
 				8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */,
+				8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */,
 				8E2D6175298D908100C34F08 /* DHCollectionView.swift in Sources */,
 				8EB323BF29AD18C8001CA350 /* HomeVC.swift in Sources */,
+				8E3AF77E29AFC15A00650C19 /* TweetTVC.swift in Sources */,
 				8EB323C329AD1986001CA350 /* NotificationVC.swift in Sources */,
 				8E237046294F80C500B04102 /* CustomView.swift in Sources */,
 				8E23703F294F757800B04102 /* CreateAccountVC.swift in Sources */,

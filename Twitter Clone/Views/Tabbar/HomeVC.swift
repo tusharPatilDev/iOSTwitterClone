@@ -89,6 +89,19 @@ class HomeVC: UIViewController {
             followingLbl.centerYAnchor.constraint(equalTo: followingView.centerYAnchor)
         ])
         followingLbl.textAlignment = .center
+        
+        let tableView = UITableView()
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor)
+        ])
+        tableView.register(TweetTVC.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     @objc private func followingBtnAction(){
         followingIndicatorView.backgroundColor = .systemBlue
@@ -101,4 +114,23 @@ class HomeVC: UIViewController {
     @objc func profileBtnAction(){
         
     }
+}
+
+//MARK: UITableViewDelegate and UITableViewDataSource
+extension HomeVC: UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 666
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("indexPath-- \(indexPath.row)")
+    }
+    
 }
