@@ -21,6 +21,7 @@
 		8E3AF77E29AFC15A00650C19 /* TweetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */; };
 		8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F01294F0BBC00987929 /* FontUtility.swift */; };
 		8E3C7F04294F12AE00987929 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7F03294F12AE00987929 /* ExtensionManager.swift */; };
+		8E48B24329B11B6D00A47CA3 /* AddTweetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48B24229B11B6D00A47CA3 /* AddTweetVC.swift */; };
 		8E5D0E33298AA6A700E71266 /* ChooseInterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */; };
 		8E6E9AE72986AC360085EB87 /* PasswordVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */; };
 		8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A7FE22956212C004A8897 /* TPKeyboardBar.swift */; };
@@ -75,6 +76,7 @@
 		8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTVC.swift; sourceTree = "<group>"; };
 		8E3C7F01294F0BBC00987929 /* FontUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtility.swift; sourceTree = "<group>"; };
 		8E3C7F03294F12AE00987929 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		8E48B24229B11B6D00A47CA3 /* AddTweetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTweetVC.swift; sourceTree = "<group>"; };
 		8E5D0E32298AA6A700E71266 /* ChooseInterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestVC.swift; sourceTree = "<group>"; };
 		8E6E9AE62986AC360085EB87 /* PasswordVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVerificationVC.swift; sourceTree = "<group>"; };
 		8E7A7FE22956212C004A8897 /* TPKeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPKeyboardBar.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		8E23703C294F755100B04102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8E48B24129B11B4500A47CA3 /* AddTweet */,
 				8EB323BB29AD1823001CA350 /* Tabbar */,
 				8E23703D294F755800B04102 /* Auth */,
 			);
@@ -186,6 +189,14 @@
 				8E7A7FE22956212C004A8897 /* TPKeyboardBar.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8E48B24129B11B4500A47CA3 /* AddTweet */ = {
+			isa = PBXGroup;
+			children = (
+				8E48B24229B11B6D00A47CA3 /* AddTweetVC.swift */,
+			);
+			path = AddTweet;
 			sourceTree = "<group>";
 		};
 		8E8C74DB294EF18700318CA8 = {
@@ -421,6 +432,7 @@
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
 				8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */,
 				8ED6CD71298E2FC5009F894F /* TagCVC.swift in Sources */,
+				8E48B24329B11B6D00A47CA3 /* AddTweetVC.swift in Sources */,
 				8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */,
 				8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */,
 				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,

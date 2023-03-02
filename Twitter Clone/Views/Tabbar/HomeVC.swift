@@ -130,7 +130,7 @@ class HomeVC: UIViewController {
         forYouIndicatorView.backgroundColor = .systemBlue
     }
     @objc private func addTweetBtn(){
-        
+        navigationController?.pushViewController(AddTweetVC(), animated: true)
     }
     @objc func profileBtnAction(){
         
