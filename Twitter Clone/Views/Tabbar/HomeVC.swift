@@ -102,6 +102,24 @@ class HomeVC: UIViewController {
         tableView.register(TweetTVC.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        setupFloatingButton()
+    }
+    private func setupFloatingButton(){
+        let btn = UIButton()
+        view.addSubview(btn)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            btn.heightAnchor.constraint(equalToConstant: 60),
+            btn.widthAnchor.constraint(equalToConstant: 60),
+            btn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -16),
+            btn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -16)
+        ])
+        btn.backgroundColor = .systemBlue
+        btn.setImage(UIImage(systemName: "plus"), for: .normal)
+        btn.tintColor = .white
+        btn.layer.cornerRadius = 30
+        btn.addTarget(self, action: #selector(addTweetBtn), for: .touchUpInside)
+        view.bringSubviewToFront(btn)
     }
     @objc private func followingBtnAction(){
         followingIndicatorView.backgroundColor = .systemBlue
@@ -110,6 +128,9 @@ class HomeVC: UIViewController {
     @objc private func forYouBtnAction(){
         followingIndicatorView.backgroundColor = .systemBackground
         forYouIndicatorView.backgroundColor = .systemBlue
+    }
+    @objc private func addTweetBtn(){
+        
     }
     @objc func profileBtnAction(){
         
