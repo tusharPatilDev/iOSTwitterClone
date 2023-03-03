@@ -14,6 +14,7 @@ class AddTweetVC: UIViewController {
     private var bottomViewBottomConstraint:NSLayoutConstraint?
     private let tweetTV = UITextView()
     private let bottomView = UIView()
+    private let progressView = CircularProgressView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,12 +84,12 @@ class AddTweetVC: UIViewController {
             tweetTV.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
             tweetTV.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16)
         ])
+        tweetTV.autocorrectionType = .no
         tweetTV.text = "What's happening?"
         tweetTV.textColor = .lightGray
         tweetTV.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 20)
     }
     private func setupBottomView(){
-        bottomView.backgroundColor = .red
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -98,6 +99,25 @@ class AddTweetVC: UIViewController {
         ])
         bottomViewBottomConstraint = bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomViewBottomConstraint?.isActive = true
+        
+        bottomView.addSubview(progressView)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            progressView.heightAnchor.constraint(equalToConstant: 40),
+            progressView.widthAnchor.constraint(equalToConstant: 40),
+            progressView.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor,constant: 16),
+            progressView.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor)
+        ])
+        let borderView = UIView()
+        borderView.backgroundColor = .systemGray4
+        progressView.addSubview(borderView)
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            borderView.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor),
+            borderView.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor),
+            borderView.heightAnchor.constraint(equalToConstant: 0.5),
+            borderView.topAnchor.constraint(equalTo: bottomView.topAnchor)
+        ])
     }
     @objc private func closeBtnActin(){
         navigationController?.popViewController(animated: true)
@@ -134,10 +154,15 @@ extension AddTweetVC: UITextViewDelegate{
         if textView.text == "What's happening?" || textView.text == ""{
             tweetBtn.isUserInteractionEnabled = false
             tweetBtn.backgroundColor = .systemBlue.withAlphaComponent(0.5)
-        } else {
+            progressView.setProgress(progress: 0.0)
+        } else if textView.text != ""{
+            let progress:Double = Double(Double(textView.text.count) / 200.0)
+            print("progress--- \(progress)")
+            progressView.setProgress(progress: progress)
             tweetBtn.isUserInteractionEnabled = true
             tweetBtn.backgroundColor = .systemBlue
         }
+        
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // get the current text, or use an empty string if that failed

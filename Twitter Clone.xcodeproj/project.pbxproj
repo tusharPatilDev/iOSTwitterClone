@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E10651F29B264580006D716 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E10651E29B264580006D716 /* CircularProgressView.swift */; };
 		8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */; };
 		8E14C065298E67CF00F5BA3A /* FollowOneAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14C064298E67CF00F5BA3A /* FollowOneAccountVC.swift */; };
 		8E14C067298E6D4700F5BA3A /* UserProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E10651E29B264580006D716 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		8E13F938298D84ED0095CC69 /* SelectSubInterestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubInterestVC.swift; sourceTree = "<group>"; };
 		8E14C064298E67CF00F5BA3A /* FollowOneAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowOneAccountVC.swift; sourceTree = "<group>"; };
 		8E14C066298E6D4700F5BA3A /* UserProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTVC.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8E237045294F80C500B04102 /* CustomView.swift */,
 				8E237047294F80DD00B04102 /* CustomView.xib */,
 				8E2D6174298D908100C34F08 /* DHCollectionView.swift */,
+				8E10651E29B264580006D716 /* CircularProgressView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				8E36E82E298955E700CEF078 /* EnterUsernameVC.swift in Sources */,
 				8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */,
 				8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */,
+				8E10651F29B264580006D716 /* CircularProgressView.swift in Sources */,
 				8E3C7F02294F0BBC00987929 /* FontUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
