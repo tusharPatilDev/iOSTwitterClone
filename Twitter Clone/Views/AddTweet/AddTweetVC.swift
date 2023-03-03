@@ -122,12 +122,12 @@ class AddTweetVC: UIViewController {
 }
 //MARK: UITextViewDelegate
 extension AddTweetVC: UITextViewDelegate{
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        if textView.textColor == .black && textView.text == ""{
-            textView.text = "What's happening?"
-            textView.textColor = .lightGray
-        } else if textView.textColor == .lightGray && textView.text != ""{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "What's happening?"{
             textView.textColor = .black
-        } 
+            textView.text = ""
+        } else {
+            textView.textColor = .black
+        }
     }
 }
