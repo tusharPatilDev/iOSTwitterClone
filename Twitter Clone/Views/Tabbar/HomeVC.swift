@@ -133,7 +133,7 @@ class HomeVC: UIViewController {
         navigationController?.pushViewController(AddTweetVC(), animated: true)
     }
     @objc func profileBtnAction(){
-        
+        navigationController?.pushViewController(UserProfileVC(), animated: true)
     }
 }
 
