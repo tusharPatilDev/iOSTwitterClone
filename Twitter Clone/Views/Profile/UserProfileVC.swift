@@ -10,6 +10,9 @@ import UIKit
 class UserProfileVC: UIViewController {
     private let coverProfileImg = UIImageView()
     private var profileCoverPicViewHeightConstraint:NSLayoutConstraint?
+    private let fullNameLbl = UILabel()
+    private let usernameLbl = UILabel()
+    private let editProfileBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,42 @@ class UserProfileVC: UIViewController {
         profileImgView.clipsToBounds = true
         profileImg.layoutIfNeeded()
         profileImg.layer.cornerRadius = profileImg.frame.height/2
+        
+        view.addSubview(fullNameLbl)
+        fullNameLbl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fullNameLbl.topAnchor.constraint(equalTo: profileImgView.bottomAnchor,constant: 8),
+            fullNameLbl.leadingAnchor.constraint(equalTo: profileImgView.leadingAnchor,constant: 0),
+            fullNameLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 20)
+        ])
+        fullNameLbl.font = FontUtility.shared.getFont(font: .helveticaNeueBold, size: 16)
+        fullNameLbl.text = "Elon Musk"
+        
+        view.addSubview(usernameLbl)
+        usernameLbl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usernameLbl.leadingAnchor.constraint(equalTo: fullNameLbl.leadingAnchor),
+            usernameLbl.trailingAnchor.constraint(equalTo: fullNameLbl.trailingAnchor),
+            usernameLbl.topAnchor.constraint(equalTo: fullNameLbl.bottomAnchor)
+        ])
+        usernameLbl.font = FontUtility.shared.getFont(font: .helveticaNeueMedium, size: 16)
+        usernameLbl.textColor = .gray
+        usernameLbl.text = "@elon_musk"
+        
+        view.addSubview(editProfileBtn)
+        editProfileBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            editProfileBtn.heightAnchor.constraint(equalToConstant: 30),
+            editProfileBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16),
+            editProfileBtn.widthAnchor.constraint(equalToConstant: 100),
+            editProfileBtn.topAnchor.constraint(equalTo: coverProfileImg.bottomAnchor,constant: 16)
+        ])
+        editProfileBtn.setTitle("Edit profile", for: .normal)
+        editProfileBtn.setTitleColor(.darkGray, for: .normal)
+        editProfileBtn.layer.cornerRadius = 15
+        editProfileBtn.layer.borderColor = UIColor.gray.cgColor
+        editProfileBtn.layer.borderWidth = 0.5
+        editProfileBtn.setTitleFont(font: .helveticaNeueMedium, size: 15)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
