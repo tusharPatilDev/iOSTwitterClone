@@ -47,6 +47,7 @@
 		8ED6CD71298E2FC5009F894F /* TagCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6CD70298E2FC5009F894F /* TagCVC.swift */; };
 		8ED8D33D298B285C0094CB8E /* ChooseInterestCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */; };
 		8EDFC80C29880D5300A1E467 /* PickProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */; };
+		8EE8601D29BCC982006051BA /* CurrentUserProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8601C29BCC982006051BA /* CurrentUserProfileTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		8ED6CD70298E2FC5009F894F /* TagCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCVC.swift; sourceTree = "<group>"; };
 		8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestCVC.swift; sourceTree = "<group>"; };
 		8EDFC80B29880D5300A1E467 /* PickProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickProfileVC.swift; sourceTree = "<group>"; };
+		8EE8601C29BCC982006051BA /* CurrentUserProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 		8ED8D33B298B28150094CB8E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8EE8601929BCC913006051BA /* UserProfileTVCs */,
 				8ED8D33C298B285C0094CB8E /* ChooseInterestCVC.swift */,
 				8ED6CD6E298E2D07009F894F /* TagCollectionTVC.swift */,
 				8ED6CD70298E2FC5009F894F /* TagCVC.swift */,
@@ -295,6 +298,14 @@
 				8E3AF77D29AFC15A00650C19 /* TweetTVC.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8EE8601929BCC913006051BA /* UserProfileTVCs */ = {
+			isa = PBXGroup;
+			children = (
+				8EE8601C29BCC982006051BA /* CurrentUserProfileTVC.swift */,
+			);
+			path = UserProfileTVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +469,7 @@
 				8E237042294F763A00B04102 /* NavigationBar.swift in Sources */,
 				8EB323C529AD19B5001CA350 /* MessagesVC.swift in Sources */,
 				8E8C74EA294EF18700318CA8 /* SceneDelegate.swift in Sources */,
+				8EE8601D29BCC982006051BA /* CurrentUserProfileTVC.swift in Sources */,
 				8E7A7FE32956212C004A8897 /* TPKeyboardBar.swift in Sources */,
 				8E13F939298D84ED0095CC69 /* SelectSubInterestVC.swift in Sources */,
 				8ED6CD71298E2FC5009F894F /* TagCVC.swift in Sources */,
